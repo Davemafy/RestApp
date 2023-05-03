@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="./favicon.png" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="RestApp: a dynamic system for the management of a restaurant using JavaScript " />
+  <link rel="stylesheet" href="./form.css" />
+  <link rel="stylesheet" href="./main.css" />
+  <link rel="apple-touch-icon" href="./favicon.png" />
+  <link rel="manifest" href="./manifest.json" />
+  <title>RestApp</title>
+</head>
+
+<body>
+  <!--
+ -->
+
+  <form action="">
+    <div class="inner-form-box">
+      <label for="name-inp">Customer</label>
+      <input type="text" name="" id="name-inp">
+    </div>
+
+    <div class="inner-form-box">
+      <label for="order-inp">Order</label>
+      <input type="text" name="" id="order-inp">
+    </div>
+
+    <div class="inner-form-box">
+      <label for="price-inp">Price</label>
+      <input type="text" name="" id="price-inp">
+    </div>
+
+    <div class="inner-form-box">
+      <label for="plate-inp">Plates Used</label>
+      <input type="number" value="Submit" id="plate-inp">
+    </div>
+
+    <div class="inner-form-box flex">
+      <label for="takeaway-inp">Takeaway</label>
+      <input type="radio" name="" id="takeaway-inp">
+    </div>
+
+    <button type="submit">Record</button>
+
+    <div class="inner-form-box">
+      <label for="extra-info">Extra Information</label>
+      <input type="text" name="" id="extra-info">
+    </div>
+    
+    <p>Success</p>
+  </form>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./serviceworker.js')
+          .then((reg) => console.log("Success", reg.scope))
+          .catch((err) => console.log("Failure", err));
+      })
+    }
+  </script>
+  <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+form{
+  display: grid;
+  gap: 2rem;
+}
+input:not(#extra-info){
+  border: 0;
+  border-bottom: solid;
+}
+input[type="radio"]:enabled{
+
+  background: red!important;
+  color: red!important;
+  border: 1px green solid!important;
+  outline: 1px red solid;
+  fill: red!important;
+ 
+  
+}
+button{
+  width: 50%;
+  margin: auto;
+}
+
+/* Utility Classes*/
+.inner-form-box{
+  display: grid;
+}
+.flex{
+  display: flex;
+}

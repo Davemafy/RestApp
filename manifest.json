@@ -1,0 +1,16 @@
+{
+  "name": "RestApp",
+  "short_name": "RestApp",
+  "icons": [
+  {
+    "src": "/favicon.png",
+    "type": "image/png",
+    "sizes": "1024×1024"
+  }
+  ],
+  "start-url": ".",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "display": "fullscreen",
+  "orientation": "potrait"
+}

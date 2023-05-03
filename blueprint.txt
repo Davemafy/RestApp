@@ -1,0 +1,62 @@
+USER
+-name: string
+
+Worker
+-name: string
+
+Customer
+-name: string
+
+Transaction
+-orderFromMenu: string
+-price: int
+-date: string
+-hasPaid(): boolean
+-numberOfPlatesUsed: int
+-hasReturnedPlate(): boolean
+-usedTakeaway(): boolean
+
+Menu
+-ordersTaken: int
+-ordersLeft: int
+-ordersStored: {}
+
+Plate
+-initialNumder: int
+-numberTaken: int
+-numberPresent: int
+-numberReturned: int
+
+Spoons
+-initialNumber: int
+-numberTaken: 
+-numberPresent: int
+-numberReturned: int
+
+ANALYSIS 
+
+Total transactions / plates sold
+-each transaction are stored in 
+ an array container.
+-the sum  will be calculated from
+ arrays length.
+
+Total of prices
+-each transaction price are stored in
+ an array container.
+-iterating over the array each
+ of prices will sum the retuning
+ the total sum of the prices.
+ 
+Amount of paid transactions
+-if the box is ticked it gets stored
+- the lenght of the cont. 
+
+
+ 
+ 
+
+
+
+
+

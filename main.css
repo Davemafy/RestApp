@@ -1,0 +1,10 @@
+@font-face {
+  font-family: Poppins;
+  src: url('/Poppins-Medium.ttf');
+}
+
+body,button,input{
+  font-family: Poppins;
+  color: #111;
+}
+
