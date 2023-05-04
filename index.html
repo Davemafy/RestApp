@@ -2,67 +2,290 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="./favicon.png" />
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="RestApp: a dynamic system for the management of a restaurant using JavaScript " />
-  <link rel="stylesheet" href="./form.css" />
-  <link rel="stylesheet" href="./main.css" />
-  <link rel="apple-touch-icon" href="./favicon.png" />
-  <link rel="manifest" href="./manifest.json" />
-  <title>RestApp</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#111">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#111">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#111">
+  <title>Admin panel</title>
+  <link rel="icon" href="/favicon.png">
+  <link rel="stylesheet" href="darkmode.css">
+  <link rel="manifest" href="manifest.json">
+  <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+-->
 </head>
 
-<body>
-  <!--
- -->
+<body aria-current="true">
+  <header>
+    <nav id="nav">
+      <div id="title">
+        <p>
+          <span id="home">
+            <span>O1</span> HOME
+          </span>
+          <span id="user">
+            <span>IXI</span> VIEW
+          </span>
+          <span id="user">
+            <span>IV</span> ADMIN
+          </span>
+        </p>
+      </div>
+    </nav>
 
-  <form action="">
-    <div class="inner-form-box">
-      <label for="name-inp">Customer</label>
-      <input type="text" name="" id="name-inp">
+    <div class="overlay" data-visible="false"></div>
+    <div id="primary-navigation" data-visible="false" data-transed="false">
+      <ul>
+        <li class="" id="calculator-toggle">
+          <a aria-controls="primary-calculator" aria-expanded="false">
+            Calculate
+          </a>
+        </li>
+
+        <li class="" id="Check Customers">
+          <a>
+            Customer
+          </a>
+        </li>
+
+        <li class="" id="Relax">
+          <a>
+            Relax
+          </a>
+        </li>
+
+        <li class="" id="Subroutine">
+          <a>
+            Subroutine
+          </a>
+        </li>
+
+        <li class="" id="Payments">
+          <a>Payments</a>
+        </li>
+
+        <li class="" id="Payments">
+          <a>Analysis</a>
+        </li>
+
+      </ul>
     </div>
-
-    <div class="inner-form-box">
-      <label for="order-inp">Order</label>
-      <input type="text" name="" id="order-inp">
+    <div id="primary-calculator" data-visible="false" data-closed="true">
+      <button id="primary-calculator-toggle"></button>
+      <section id="primary-calculator-history">
+        <input data-current-operand type="text" id="calc-display">
+        <p data-previous-operand id="result-box"></p>
+      </section>
+      <section id="primary-calculator-actions">
+        <button data-all-clear id="clear-all" class="operator">AC</button>
+        <button data-operation id="divide" class="operator">÷</button>
+        <button data-operation id="multiply" class="operator">×</button>
+        <button data-delete id="cancel" class="operator"><img src="icons/backspace-svgrepo-com.svg" alt=""></button>
+        <button data-number id="num7" class="number">7</button>
+        <button data-number id="num8" class="number">8</button>
+        <button data-number id="num9" class="number">9</button>
+        <button data-operation id="subtract" class="operator">-</button>
+        <button data-number id="num4" class="number">4</button>
+        <button data-number id="num5" class="number">5</button>
+        <button data-number id="num6" class="number">6</button>
+        <button data-operation id="add" class="operator">+</button>
+        <button data-number id="num1" class="number">1</button>
+        <button data-number id="num2" class="number">2</button>
+        <button data-number id="num3" class="number">3</button>
+        <button data-equals id="equals" class="operator white">=</button>
+        <button data-operation id="modulus" class="operator white">%</button>
+        <button data-number id="num0" class="number">0</button>
+        <button data-number id="period" class="operator white">.</button>
+      </section>
     </div>
+  </header>
+  <button id="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+  </button>
 
-    <div class="inner-form-box">
-      <label for="price-inp">Price</label>
-      <input type="text" name="" id="price-inp">
+  <!-- <div class="top"></div> -->
+  <button id="arrow"></button>
+
+  <div id="nav-kits" class="dark blue">
+    <img id="notify-toggle" src="doorbell_black_24dp.svg" alt="">
+    <img id="analysis-toggle" src="contactless_black_24dp.svg" alt="">
+    <img id="add-toggle" src="add_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+    <span id="dotbox">
+      <span class="dot"></span>
+      <img id="records-toggle" src="assignment_ind_black_24dp.svg" alt="">
+    </span>
+    <img id="settings-toggle" src="settings.svg" alt="">
+  </div>
+  <section id="primary-form">
+    <div id="name-box">
+      <label for="customer"></label>
+      <input type="text" placeholder="Customer name" class="primary-form-input" id="name">
+      <p class="warn-text"><small><img src="/fi-rr-info.svg" width="6%" alt=""> this field is required </small></p>
     </div>
-
-    <div class="inner-form-box">
-      <label for="plate-inp">Plates Used</label>
-      <input type="number" value="Submit" id="plate-inp">
+    <div id="order-box">
+      <label for="order">Menu</label>
+      <input type="text" placeholder="food request" class="primary-form-input" id="menu" list="menu-list">
+      <p class="warn-text"><small><img src="/fi-rr-info.svg" width="6%" alt=""> this field is required </small></p>
     </div>
-
-    <div class="inner-form-box flex">
-      <label for="takeaway-inp">Takeaway</label>
-      <input type="radio" name="" id="takeaway-inp">
+    <div id="price-box">
+      <label for="price">Price</label>
+      <input type="text" placeholder="price" inputmode="numeric" class="primary-form-input" id="price" list="price-list">
+      <p class="warn-text"><small><img src="/fi-rr-info.svg" width="6%" alt=""> this field is required </small></p>
     </div>
+    <button id="form-btn">Submit</button>
+    <datalist id="customers-list">
+    </datalist>
+    <datalist id="menu-list">
+      <option value="Egusi Soup & Semo "></option>
+      <option value="Akpu & Ogbono Soup"></option>
+      <option value="Ogbono & Eba Soup"></option>
+      <option value="Rice Only"></option>
+      <option value="Akpu & Ogbono Soup"></option>
+      <option value="Semo & Ogbono Soup"></option>
+      <option value="Akpu & Ogbono with Egusi Soup"></option>
+      <option value="Rice & Beans"></option>
+      <option value="Semo & Ogbono with Egusi Soup"></option>
+      <option value="Vegetable Soup & Semo"></option>
+      <option value="Bitter Leaf Soup & Akpu"></option>
+      <option value="White Soup & Eba"></option>
+      <option value="Jollof Rice"></option>
+      <option value="Fried Rice"></option>
+      <option value="Vegetable Soup & Akpu"></option>
+      <option value="Bitter leaf Soup & Semo"></option>
+      <option value="White Soup & Semo"></option>
+      <option value="White Soup & Akpu"></option>
+    </datalist>
+    <datalist id="price-list">
+      <option value="200"></option>
+      <option value="300"></option>
+      <option value="400"></option>
+      <option value="500"></option>
+      <option value="600"></option>
+      <option value="700"></option>
+      <option value="800"></option>
+      <option value="900"></option>
+      <option value="1000"></option>
+      <option value="1100"></option>
+      <option value="1200"></option>
+    </datalist>
+  </section>
+  <section id="primary-records" data-visible="false">
+    <div class="top-bar">
+      <h1 id="head-title">History</h1>
+      <div class="utility">
+        <button id="tools-btn" aria-owns="tools">
+          <img src="more_vert_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+        </button>
+        <div id="tools" data-visible="false">
+          <button id="cube-box">
+            <span class="dot">🛠️</span>
+            <img src="cube.png" alt="">
+          </button>
 
-    <button type="submit">Record</button>
+          <button id="visibility-btn">
+            <svg aria-controls="records-all" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#221">
+              <path d="M0 0h24v24H0V0zm0 0h24v24H0V0zm0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none" />
+              <path d="M12 6c3.79 0 7.17 2.13 8.82 5.5-.59 1.22-1.42 2.27-2.41 3.12l1.41 1.41c1.39-1.23 2.49-2.77 3.18-4.53C21.27 7.11 17 4 12 4c-1.27 0-2.49.2-3.64.57l1.65 1.65C10.66 6.09 11.32 6 12 6zm-1.07 1.14L13 9.21c.57.25 1.03.71 1.28 1.28l2.07 2.07c.08-.34.14-.7.14-1.07C16.5 9.01 14.48 7 12 7c-.37 0-.72.05-1.07.14zM2.01 3.87l2.68 2.68C3.06 7.83 1.77 9.53 1 11.5 2.73 15.89 7 19 12 19c1.52 0 2.98-.29 4.32-.82l3.42 3.42 1.41-1.41L3.42 2.45 2.01 3.87zm7.5 7.5l2.61 2.61c-.04.01-.08.02-.12.02-1.38 0-2.5-1.12-2.5-2.5 0-.05.01-.08.01-.13zm-3.4-3.4l1.75 1.75c-.23.55-.36 1.15-.36 1.78 0 2.48 2.02 4.5 4.5 4.5.63 0 1.23-.13 1.77-.36l.98.98c-.88.24-1.8.38-2.75.38-3.79 0-7.17-2.13-8.82-5.5.7-1.43 1.72-2.61 2.93-3.53z" />
+            </svg>
+          </button>
 
-    <div class="inner-form-box">
-      <label for="extra-info">Extra Information</label>
-      <input type="text" name="" id="extra-info">
+          <button id="delete-btn">
+            <span class="dot"></span>
+            <img src="delete_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+          </button>
+
+          <button id="id-btn">
+            <span class="dot">
+              🛠️
+            </span>
+            <img src="id3.png" alt="">
+          </button>
+        </div>
+      </div>
+      <button id="exit-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+          <g>
+            <path d="M0,0h24v24H0V0z" fill="none" />
+          </g>
+          <g>
+            <path d="M17,8l-1.41,1.41L17.17,11H9v2h8.17l-1.58,1.58L17,16l4-4L17,8z M5,5h7V3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h7v-2H5V5z" />
+          </g>
+        </svg>
+      </button>
     </div>
-    
-    <p>Success</p>
-  </form>
+    <div id="records-all" data-visible="true">
+      <div style="text-align: center;line-height: 80vh; font-weight: bolder;" id="default">
+        <p>No recent records <br><i>���</i>🪴</p>
+      </div>
+      <ul id="record-cards">
+        <div class="sub-title" data-visible="false">Now </div>
+        <div id="display">
+        </div>
+      </ul>
+      <ul id="earlier-cards"></ul>
+    </div>
+  </section>
+
+  <section id="primary-analysis">
+    <article class="analysis-container">
+      <h1>Total number of plates sold</h1>
+      <p></p>
+    </article>
+    <article class="analysis-container">
+      <div class="box">
+        <h1 id="rev-title">Amount from sales</h1>
+        <div>
+          <b> <u>#0</u> </b>
+        </div>
+      </div>
+    </article>
+    <article class="analysis-container">
+      <h1>Active Customers</h1>
+      <div>
+        <p>15k to you opay wallet</p>
+      </div>
+    </article>
+    <article class="analysis-container">
+      <h1>Records</h1>
+      <div>
+        <p>15k to you opay wallet</p>
+      </div>
+    </article>
+    <article class="analysis-container">
+      <h1>Operations</h1>
+      <div>
+        <p>15k to you opay wallet</p>
+      </div>
+    </article>
+  </section>
+
+
+
+  <div id="pop-up">
+    <div id="dialog-box">
+      <h1>Delete this items forever</h1>
+      <div id="item"></div>
+      <button id="yes-btn">✓</button>
+      <button id="no-btn">x</button>
+    </div>
+  </div>
+  
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./serviceworker.js')
-          .then((reg) => console.log("Success", reg.scope))
-          .catch((err) => console.log("Failure", err));
+    if('serviceWorker' in navigator){
+      window.addEventListener('load', ()=>{
+        navigator.serviceWorker.register('serviceworker.js')
+          .then((reg) => console.log('Success', reg.scope))
+          .catch((err) => console.log('Failure', err))
       })
     }
   </script>
-  <script src="main.js"></script>
+  <script src="appData.js"></script>
+  <script src="calcapp.js" defer></script>
+  <script src="toggle.js" defer></script>
+  <script src="database.js" type="module"></script>
 </body>
 
 </html>

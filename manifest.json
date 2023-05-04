@@ -1,16 +1,29 @@
 {
-  "name": "RestApp",
+  "name": "RestApp V.2",
   "short_name": "RestApp",
   "icons": [
-  {
-    "src": "/favicon.png",
-    "type": "image/png",
-    "sizes": "1024×1024"
-  }
+    {
+      "src": "favicon.png",
+      "sizes": "192x192"
+    }, {
+      "src": "favicon.png",
+      "sizes": "64x64"
+    }
   ],
-  "start-url": ".",
-  "theme_color": "#000000",
-  "background_color": "#ffffff",
   "display": "fullscreen",
-  "orientation": "potrait"
+  "scope": "/",
+  "start_url": "/",
+  "orientation": "portrait",
+  "theme_color": "#f44b28",
+  "background_color": "#fff",
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.example.app1",
+      "id": "com.example.app1"
+    }, {
+      "platform": "itunes",
+      "url": "https://itunes.apple.com/app/example-app1/id123456789"
+    }
+  ]
 }
